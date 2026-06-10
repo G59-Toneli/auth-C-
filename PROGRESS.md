@@ -56,7 +56,9 @@ docker compose up -d
 - [x] .NET SDK 10.0.203 instalado
 - [x] `dotnet-ef` 10.0.8 instalado (global)
 - [ ] Docker Desktop instalado e rodando
-- [ ] `.gitignore` para .NET criado na raiz (ignorar `bin/`, `obj/`)
+- [x] `.gitignore` para .NET criado na raiz (`bin/`/`obj/` removidos do versionamento)
+- [x] `CLAUDE.md` (regras do mentor) versionado — replica o comportamento no 2º PC
+- [x] Repo sincronizado no GitHub (`origin/main`)
 
 ### Fase 1 — Fundação
 - [x] Solution `Auth` criada (`Auth.slnx`)
