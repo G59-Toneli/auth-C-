@@ -4,7 +4,7 @@
 > Roteiro completo do projeto: `.claude/PROJECT.md`.
 > **Regra do projeto:** o Gustavo escreve TODO o código/comandos manualmente; o Claude só guia, explica e revisa.
 
-**📍 VOCÊ ESTÁ AQUI:** Fase 3 — Repository Pattern. Próximo: `IUserRepository` + `UserRepository`.
+**📍 VOCÊ ESTÁ AQUI:** Fase 3 — registrar `UserRepository` na DI do `Program.cs` (`AddScoped<IUserRepository, UserRepository>`). Interface e implementação já prontas e compilando. Próximo: Fase 4 (Service + DTOs + BCrypt).
 
 ---
 
@@ -77,9 +77,9 @@ docker compose up -d
 - [x] `dotnet ef database update` (tabela `Users` criada no Postgres)
 
 ### Fase 3 — Repository Pattern
-- [ ] `Repositories/IUserRepository.cs` (interface)
-- [ ] `Repositories/UserRepository.cs` (implementação)
-- [ ] Registrar na DI (`AddScoped`)
+- [x] `Repositories/IUserRepository.cs` (interface) — `GetByEmailAsync`, `ExistsByEmailAsync`, `AddAsync`, `SaveChangesAsync`
+- [x] `Repositories/UserRepository.cs` (implementação) — DI por construtor, `_context` readonly, build OK
+- [ ] Registrar na DI (`AddScoped<IUserRepository, UserRepository>`) **← em andamento**
 
 ### Fase 4 — Service Layer + DTOs + BCrypt
 - [ ] DTOs: `RegisterRequest`, `LoginRequest`, `AuthResponse`, `UserResponse`
@@ -104,3 +104,4 @@ docker compose up -d
 ## 🗒️ Notas de sessão
 - 2026-06-10: Fundação + entity + DbContext prontos. Docker ainda não instalado. Parado na escrita do `docker-compose.yml`.
 - 2026-06-10: Fase 2 concluída. docker-compose, connection string, DI, migrations e database update — tabela `Users` criada no Postgres.
+- 2026-06-11: Fase 3 — `IUserRepository` + `UserRepository` escritos e compilando. Estudado a fundo: interface vs implementação, async/Task, lambda no EF Core, escopo de parâmetro vs campo, Constructor Injection (DIP). Falta só registrar na DI. Continua de outro PC.
