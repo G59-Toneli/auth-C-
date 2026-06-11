@@ -4,7 +4,7 @@
 > Roteiro completo do projeto: `.claude/PROJECT.md`.
 > **Regra do projeto:** o Gustavo escreve TODO o código/comandos manualmente; o Claude só guia, explica e revisa.
 
-**📍 VOCÊ ESTÁ AQUI:** Fase 2 — escrevendo o `docker-compose.yml`. Próximo: connection string + registrar `AppDbContext` na DI do `Program.cs`.
+**📍 VOCÊ ESTÁ AQUI:** Fase 3 — Repository Pattern. Próximo: `IUserRepository` + `UserRepository`.
 
 ---
 
@@ -70,11 +70,11 @@ docker compose up -d
 - [x] `Entities/User.cs` — `Id (Guid)`, `Name`, `Email`, `PasswordHash` (required), `CreatedAt` (UtcNow)
 - [x] Pacotes NuGet: `Npgsql.EntityFrameworkCore.PostgreSQL` 10.0.2, `Microsoft.EntityFrameworkCore.Design` 10.0.8
 - [x] `Data/AppDbContext.cs` — herda `DbContext`, ctor com `DbContextOptions`, `DbSet<User> Users`
-- [ ] `docker-compose.yml` na raiz (serviço Postgres) **← em andamento**
-- [ ] Connection string em `appsettings.json`
-- [ ] Registrar `AppDbContext` na DI no `Program.cs` (`AddDbContext` + `UseNpgsql`)
-- [ ] `dotnet ef migrations add InitialCreate`
-- [ ] `dotnet ef database update` (tabela `Users` criada no Postgres)
+- [x] `docker-compose.yml` na raiz (serviço Postgres)
+- [x] Connection string em `appsettings.json`
+- [x] Registrar `AppDbContext` na DI no `Program.cs` (`AddDbContext` + `UseNpgsql`)
+- [x] `dotnet ef migrations add InitialCreate`
+- [x] `dotnet ef database update` (tabela `Users` criada no Postgres)
 
 ### Fase 3 — Repository Pattern
 - [ ] `Repositories/IUserRepository.cs` (interface)
@@ -103,3 +103,4 @@ docker compose up -d
 
 ## 🗒️ Notas de sessão
 - 2026-06-10: Fundação + entity + DbContext prontos. Docker ainda não instalado. Parado na escrita do `docker-compose.yml`.
+- 2026-06-10: Fase 2 concluída. docker-compose, connection string, DI, migrations e database update — tabela `Users` criada no Postgres.
